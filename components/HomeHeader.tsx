@@ -1,6 +1,6 @@
 import React from 'react';
-import {Image, View} from 'react-native';
-import {assets, COLORS, SIZES} from '../constant';
+import {Image, Text, TextInput, View} from 'react-native';
+import {assets, COLORS, FONTS, SIZES} from '../constant';
 
 export default function HomeHeader() {
   return (
@@ -40,6 +40,49 @@ export default function HomeHeader() {
               bottom: 0,
               right: 0,
             }}
+          />
+        </View>
+      </View>
+      <View style={{marginVertical: SIZES.font}}>
+        <Text
+          style={{
+            fontFamily: FONTS.regular,
+            fontSize: SIZES.small,
+            color: COLORS.white,
+          }}>
+          Hello PawaOx4th ✋
+        </Text>
+        <Text
+          style={{
+            fontFamily: FONTS.bold,
+            fontSize: SIZES.large,
+            color: COLORS.white,
+            marginTop: SIZES.base / 2,
+          }}>
+          Let's find a masterpiece
+        </Text>
+      </View>
+
+      <View style={{marginTop: SIZES.font}}>
+        <View
+          style={{
+            width: '100%',
+            borderRadius: SIZES.font,
+            backgroundColor: COLORS.gray,
+            flexDirection: 'row',
+            alignItems: 'center',
+            paddingHorizontal: SIZES.font,
+            paddingVertical: SIZES.small - 2,
+          }}>
+          <Image
+            source={assets.search}
+            resizeMode="contain"
+            style={{width: 20, height: 20, marginRight: SIZES.base}}
+          />
+          <TextInput
+            placeholder="Search NFTs"
+            style={{flex: 1}}
+            onChangeText={() => {}}
           />
         </View>
       </View>

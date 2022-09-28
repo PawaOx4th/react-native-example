@@ -7,9 +7,16 @@ import {
 } from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import * as React from 'react';
+import {NFTData} from './constant';
+import DetailScreen from './screen/detail';
 import HomeScreen from './screen/home';
 
-const Stack = createNativeStackNavigator();
+export type RootStackParamList = {
+  Home: undefined;
+  Detail: typeof NFTData[number];
+};
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const themes: Theme = {
   ...DefaultTheme,
@@ -26,6 +33,7 @@ function App() {
         screenOptions={{headerShown: false}}
         initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Detail" component={DetailScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

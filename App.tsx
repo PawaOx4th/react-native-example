@@ -13,7 +13,9 @@ import HomeScreen from './screen/home';
 
 export type RootStackParamList = {
   Home: undefined;
-  Detail: typeof NFTData[number];
+  Detail: {
+    data: typeof NFTData[number];
+  };
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();

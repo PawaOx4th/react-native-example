@@ -2,15 +2,17 @@ import React, {ComponentProps} from 'react';
 import {Image, ImageSourcePropType, Text, TouchableOpacity} from 'react-native';
 import {COLORS, FONTS, SHADOWS, SIZES} from '../constant';
 
-export const CircleButton = ({
-  handlePress,
-  imgUrl,
-}: {
+type CircleButtonProps = {
   imgUrl: ImageSourcePropType;
   handlePress: () => void;
   right?: number;
   left?: number;
-}) => {
+} & ComponentProps<typeof TouchableOpacity>;
+export const CircleButton = ({
+  handlePress,
+  imgUrl,
+  style,
+}: CircleButtonProps) => {
   return (
     <TouchableOpacity
       onPress={handlePress}
@@ -25,6 +27,7 @@ export const CircleButton = ({
         ...SHADOWS.light,
         top: 10,
         right: 10,
+        ...(style as Object),
       }}>
       <Image
         source={imgUrl}

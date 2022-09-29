@@ -9,6 +9,7 @@ import {
   ImageSourcePropType,
   SafeAreaView,
   StatusBar,
+  Text,
   View,
 } from 'react-native';
 import {RootStackParamList} from '../../App';
@@ -20,7 +21,7 @@ import {
   RectButton,
   SubInfo,
 } from '../../components';
-import {assets, SHADOWS, SIZES} from '../../constant';
+import {assets, COLORS, FONTS, SHADOWS, SIZES} from '../../constant';
 
 const DetailHeader = ({
   data,
@@ -100,6 +101,17 @@ function DetailScreen({
             <SubInfo />
             <View style={{padding: SIZES.font}}>
               <DetailDesc data={data} />
+
+              {data.bids.length > 0 && (
+                <Text
+                  style={{
+                    fontSize: SIZES.font,
+                    fontFamily: FONTS.semiBold,
+                    color: COLORS.primary,
+                  }}>
+                  ContentBids
+                </Text>
+              )}
             </View>
           </React.Fragment>
         )}
